@@ -18,7 +18,7 @@ func CreateUser(user *models.User) {
 func FindUserByTag(tag string) (*models.User, error) {
 	var user models.User
 
-	result := DB.Where("Tag", &tag).First(&user)
+	result := DB.Where("tag", &tag).First(&user)
 
 	if result.Error != nil {
 		return nil, result.Error
@@ -29,7 +29,7 @@ func FindUserByTag(tag string) (*models.User, error) {
 
 func GetUserByTagWithLetters(tag string) models.User {
 	var user models.User
-	DB.Order("created_at desc").Preload("Letters").Limit(10).Where("Tag", &tag).Find(&user)
+	DB.Order("created_at desc").Preload("Letters").Limit(10).Where("tag", &tag).Find(&user)
 
 	return user
 }

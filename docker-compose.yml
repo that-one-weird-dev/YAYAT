@@ -1,0 +1,42 @@
+
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: secretpassword
+    ports:
+      - 5432:5432
+    volumes:
+      - letters:/data
+    networks:
+      database:
+        ipv4_address: 192.168.69.69
+        
+  backend:
+    build: ./backend
+    environment:
+      POSTGRES_HOST: 192.168.69.69
+    ports:
+      - 3001:3001
+    networks:
+      - database
+    volumes:
+      - ./backend:/app
+      
+  frontend:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+      
+networks:
+  database:
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.69.0/24"
+
+volumes:
+  letters:
+  

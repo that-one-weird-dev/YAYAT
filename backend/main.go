@@ -26,6 +26,8 @@ func ApiRoutes(api fiber.Router, jwt func(*fiber.Ctx) error) {
 }
 
 func main() {
+	config.Init()
+
 	repository.InitConnection()
 
 	app := fiber.New()
@@ -39,5 +41,5 @@ func main() {
 	api := app.Group("/api")
 	ApiRoutes(api, jwt)
 
-	app.Listen(":3000")
+	app.Listen(":3001")
 }
