@@ -9,11 +9,16 @@ As for the frontend is just svelte with typescript, tailwindcss and svelte.
 # Running in dev
 ### Backend
 You can run it with air or the default go compiler
-***Air:*** `air`
-***Go:*** `go run main.go`
+- ***Air:*** `air`
+- ***Go:*** `go run main.go`
+
+Also you need to have a postgres server running
 
 ### Frontend
 Just `pnpm run dev` or `npm run dev` or *proceeds to list all the 1.487.437 node package managers in existance*
+
+### The easy way
+Or you could just `docker compose up -d`
 
 # Deployment
 ### WIP
