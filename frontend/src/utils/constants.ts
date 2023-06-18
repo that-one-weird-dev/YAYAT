@@ -1,2 +1,2 @@
 
-export const ENDPOINT = "http://localhost:3001" as const;
+export const ENDPOINT = `http://${location.hostname}:3001` as const;

@@ -7,7 +7,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - letters:/data
+      - postgres-data:/var/lib/postgresql/data
     networks:
       database:
         ipv4_address: 192.168.69.69
@@ -38,5 +38,5 @@ networks:
         - subnet: "192.168.69.0/24"
 
 volumes:
-  letters:
+  postgres-data:
   
