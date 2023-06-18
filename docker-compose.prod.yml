@@ -1,0 +1,9 @@
+services:
+  backend:
+    environment:
+      ENVIRONMENT: prod
+    build:
+      context: .
+      dockerfile: dockerfile.prod
+    ports:
+      - 80:80

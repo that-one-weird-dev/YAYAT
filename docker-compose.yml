@@ -13,22 +13,12 @@ services:
         ipv4_address: 192.168.69.69
         
   backend:
-    build: ./backend
+    build:
+      context: ./backend
     environment:
       POSTGRES_HOST: 192.168.69.69
-    ports:
-      - 3001:3001
     networks:
       - database
-    volumes:
-      - ./backend:/app
-      
-  frontend:
-    build: ./frontend
-    ports:
-      - 3000:3000
-    volumes:
-      - ./frontend:/app
       
 networks:
   database:

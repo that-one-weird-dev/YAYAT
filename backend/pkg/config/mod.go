@@ -2,6 +2,9 @@ package config
 
 import "os"
 
+var Environment string
+var Port = "3001"
+
 func env(key, fallback string) string {
 	value := os.Getenv(key)
 
@@ -14,4 +17,10 @@ func env(key, fallback string) string {
 func Init() {
 	initAuth()
 	initPostgres()
+
+	Environment = env("ENVIRONMENT", "dev")
+
+	if Environment == "prod" {
+		Port = "80"
+	}
 }

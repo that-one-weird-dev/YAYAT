@@ -1,2 +1,3 @@
 
-export const ENDPOINT = `http://${location.hostname}:3001` as const;
+const port = location.port === "3000" ? 3001 : location.port;
+export const ENDPOINT = `http://${location.hostname}:${port}` as const;

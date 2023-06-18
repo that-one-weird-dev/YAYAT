@@ -21,4 +21,5 @@ Just `pnpm run dev` or `npm run dev` or *proceeds to list all the 1.487.437 node
 Or you could just `docker compose up -d`
 
 # Deployment
-### WIP
+Also just `docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d`
+

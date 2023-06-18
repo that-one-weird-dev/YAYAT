@@ -38,8 +38,10 @@ func main() {
 	jwt := middlewares.NewAuthMiddleware(config.Secret)
 
 	// Routes
+	app.Static("/", "./public")
+
 	api := app.Group("/api")
 	ApiRoutes(api, jwt)
 
-	app.Listen(":3001")
+	app.Listen(":" + config.Port)
 }
