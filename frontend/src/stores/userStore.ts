@@ -5,7 +5,8 @@ export type User = {
   tag: string;
 }
 
-const storedUser: User | undefined = JSON.parse(localStorage.getItem("user"));
+const storedUserString = localStorage.getItem("user");
+const storedUser: User | undefined = storedUserString && JSON.parse(storedUserString);
 export const userStore = writable<User | undefined>(storedUser);
 
 userStore.subscribe(user => {
